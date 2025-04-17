@@ -17,15 +17,18 @@ sd(SamsungA$PriceUSA)   #Samsung美國售價標準差515.3826
 
 #第二題
 boxplot(Year~PriceChina, data=M,
-        xlab="年份",ylab="價格",main="年份-中國售價的盒鬚圖")  #年份-中國售價的盒鬚圖
+        xlab="年份",ylab="價格",main="年份-中國售價的盒鬚圖")  
+#年份-中國售價的盒鬚圖
 
-hist(M$PriceChina,xlab="人數",ylab="售價",main="中國售價長條圖")  #中國售價長條圖
+hist(M$PriceChina,xlab="人數",ylab="售價",main="中國售價長條圖")  
+#中國售價長條圖
 
 #第三題
 ggplot(M, mapping= aes(x=Weight, y=Battery))+
   geom_point(color="skyblue",size=5,pch=8)+
   ggtitle("手機重量-電池容量" , subtitle="點陣圖")+
-  xlab("weight")+ylab("battery")  #ggplot2 套件畫出手機重量-電池容量的點陣圖
+  xlab("weight")+ylab("battery")  
+#ggplot2套件畫出手機重量-電池容量的點陣圖
 
 #第四題
 library(car)
