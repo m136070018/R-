@@ -1,3 +1,4 @@
+https://github.com/m136070018/R-.git
 rm(list=ls())
 library(ggplot2)
 
@@ -7,11 +8,11 @@ M<- read.csv("Mobiles.csv", header=TRUE)
 
 #第一題
 appleA <- subset(M, Company=="Apple")
-mean(appleA$PriceUSA)   #Apple美國售價平均數1028.485
+median(appleA$PriceUSA)   #Apple美國售價中位數999
 sd(appleA$PriceUSA)   #Apple美國售價標準差247.8969
 
 SamsungA <- subset(M, Company=="Samsung")
-mean(SamsungA$PriceUSA)   #Samsung美國售價平均數748.4318
+median(SamsungA$PriceUSA)   #Samsung美國售價中位數699
 sd(SamsungA$PriceUSA)   #Samsung美國售價標準差515.3826
 
 #第二題
@@ -29,6 +30,7 @@ ggplot(M, mapping= aes(x=Weight, y=Battery))+
 #第四題
 library(car)
 leveneTest(PriceUSA~Company, data=M, center = mean)
+#因顯著性小於0.05，所以兩組變異數具有顯著差異
 
 #第五題
 run1<-aov(Weight~Company, data=M)
@@ -41,5 +43,6 @@ summary(run2)
 #廠牌和電池容量對手機重量都為非常顯著，呈高度正相關
 
 #第七題
-nrow(subset(YA,Year==2024 & Company=="Apple"))/nrow(YA)  
+nrow(subset(M,Year==2024 & Company=="Apple"))/nrow(subset(M,Year==2024))
 #2024年發行手機中Apple比例為0.12
+
